@@ -21,4 +21,4 @@ class MLServiceUser(HttpUser):
 
     @task
     def test_weather_predictions(self):
-        self.client.post("", data=test_data, headers=headers)
+        self.client.post("/predict", data=test_data, headers=headers)

@@ -9,6 +9,11 @@ import onnxruntime as rt
 # Create app object 
 app = FastAPI()
 
+# Patch for old scikit-learn pickle
+import sys
+import sklearn.preprocessing
+sys.modules['sklearn.preprocessing.data'] = sklearn.preprocessing
+
 # Load model scalar
 pickle_in = open("artifacts/model-scaler.pkl", "rb")
 scaler = pickle.load(pickle_in)
